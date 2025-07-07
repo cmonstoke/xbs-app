@@ -1,14 +1,20 @@
 <!doctype html>
-<html ng-csp>
+<!-- 
+  This file is deprecated and replaced by the service worker background.js
+  It's kept for backward compatibility during the transition period.
+-->
+<html>
 
 <head>
   <meta charset="utf-8">
+  <title>xBrowserSync Background (Deprecated)</title>
 </head>
 
 <body>
-  <webext-background></webext-background>
-  <script src="assets/vendor.js"></script>
-  <script src="assets/background.js"></script>
+  <script>
+    console.warn('background.html is deprecated. Using service worker background.js instead.');
+
+  </script>
 </body>
 
 </html>

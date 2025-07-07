@@ -26,7 +26,7 @@ module.exports = (env, argv) => {
     entry: {
       ...webExtConfig.entry,
       app: './src/modules/webext/firefox/firefox-app/firefox-app.module.ts',
-      background: './src/modules/webext/firefox/firefox-background/firefox-background.module.ts'
+      background: './src/modules/webext/shared/webext-background-standalone/webext-background-standalone.ts'
     },
     output: {
       ...webExtConfig.output,
