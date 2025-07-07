@@ -8,7 +8,7 @@ module.exports = (env, argv) => {
     entry: {
       ...webExtConfig.entry,
       app: './src/modules/webext/chromium/chromium-app/chromium-app.module.ts',
-      background: './src/modules/webext/shared/webext-service-worker/webext-service-worker.ts'
+      background: './src/modules/webext/shared/webext-background-standalone/webext-background-standalone.ts'
     },
     output: {
       ...webExtConfig.output,
