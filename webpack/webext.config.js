@@ -61,10 +61,6 @@ module.exports = (env, argv) => {
             to: '..'
           },
           {
-            from: './res/webext/background.html',
-            to: '..'
-          },
-          {
             from: './res/webext/images'
           },
           {

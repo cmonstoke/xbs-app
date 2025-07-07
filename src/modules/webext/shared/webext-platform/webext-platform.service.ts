@@ -308,7 +308,7 @@ export abstract class WebExtPlatformService implements PlatformService {
       const iconUpdated = this.$q.defer<void>();
       const titleUpdated = this.$q.defer<void>();
 
-      browser.browserAction.getTitle({}).then((currentTitle) => {
+      browser.action.getTitle({}).then((currentTitle) => {
         // Don't do anything if browser action title hasn't changed
         if (newTitle === currentTitle) {
           return resolve();
@@ -317,14 +317,14 @@ export abstract class WebExtPlatformService implements PlatformService {
         // Set a delay if finished syncing to prevent flickering when executing many syncs
         if (currentTitle.indexOf(syncingTitle) > 0 && newTitle.indexOf(syncedTitle)) {
           this.refreshInterfaceTimeout = this.$timeout(() => {
-            browser.browserAction.setIcon({ path: iconPath });
-            browser.browserAction.setTitle({ title: newTitle });
+            browser.action.setIcon({ path: iconPath });
+            browser.action.setTitle({ title: newTitle });
           }, 350);
           iconUpdated.resolve();
           titleUpdated.resolve();
         } else {
-          browser.browserAction.setIcon({ path: iconPath }).then(iconUpdated.resolve);
-          browser.browserAction.setTitle({ title: newTitle }).then(titleUpdated.resolve);
+          browser.action.setIcon({ path: iconPath }).then(iconUpdated.resolve);
+          browser.action.setTitle({ title: newTitle }).then(titleUpdated.resolve);
         }
 
         this.$q.all([iconUpdated, titleUpdated]).then(resolve).catch(reject);
